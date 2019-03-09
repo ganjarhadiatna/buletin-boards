@@ -329,6 +329,6 @@ export default {
 </script>
 
 <style>
-	@import url('./assets/icons/fontawesome/css/all.min.css');
+	/* @import url('./assets/icons/fontawesome/css/all.min.css'); */
 	@import url('./assets/scss/main.css');
 </style>
