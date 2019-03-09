@@ -19,7 +19,8 @@ Vue.use(require('vue-moment'))
 
 Vue.config.productionTip = false
 
-Vue.prototype.$initUrl = window.location.protocol + '//' + window.location.host
+// Vue.prototype.$initUrl = window.location.protocol + '//' + window.location.host
+Vue.prototype.$initUrl = 'https://ganjarhadiatna.github.io/buletin-boards/'
 Vue.prototype.$baseUrl = 'http://localhost/buletin_boards/public'
 
 Vue.prototype.$goBack = function () {
