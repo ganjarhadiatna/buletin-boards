@@ -93,66 +93,78 @@ export default {
             this.frameErrPass = false;
             this.valLogin = 'Please Wait...';
             this.disLogin = true;
-            axios.post(this.url, {
-                'email': this.user.email,
-                'password': this.user.password
-            })
-            .then(response => {
-                if (response.data.status == 'unauthorized') 
-                {
-                    vm.frameErr = true;
-                    vm.message = e.response.responseText;
-                    vm.valLogin = 'Try Again';
-                    vm.disLogin = false;
-                }
-                if (response.data.status == 'invalide') 
-                {
-                    vm.valLogin = 'Try again';
-                    vm.disLogin = false;
-                    if (response.data.message.password) 
-                    {
-                        vm.frameErrPass = true;
-                        vm.messagePass = response.data.message.password[0];
-                    }
-                    if (response.data.message.email) 
-                    {
-                        vm.frameErrEmail = true;
-                        vm.messageEmail = response.data.message.email[0];
-                    }
-                }
-                if (response.data.status == 'success') 
-                {
-                    vm.valLogin = 'Success';
-                    vm.disLogin = true;
-                    this.$cookie.set('jwt', response.data.me.access_token, 7);
-                    this.$cookie.set('id', response.data.me.id, 7);
-                    this.$cookie.set('name', response.data.me.name, 7);
-                    this.$cookie.set('username', response.data.me.username, 7);
-                    this.$cookie.set('foto', response.data.me.foto, 7);
-                    window.location = vm.$initUrl;
-                    // console.log(response.data);
+
+            // true : dont forget to delete
+            vm.valLogin = 'Success';
+            vm.disLogin = true;
+            this.$cookie.set('jwt', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa', 7);
+            this.$cookie.set('id', '1', 7);
+            this.$cookie.set('name', 'Ganjar Hadiatna', 7);
+            this.$cookie.set('username', 'ganjar18', 7);
+            this.$cookie.set('foto', '', 7);
+            window.location = vm.$initUrl;
+
+
+            // axios.post(this.url, {
+            //     'email': this.user.email,
+            //     'password': this.user.password
+            // })
+            // .then(response => {
+            //     if (response.data.status == 'unauthorized') 
+            //     {
+            //         vm.frameErr = true;
+            //         vm.message = e.response.responseText;
+            //         vm.valLogin = 'Try Again';
+            //         vm.disLogin = false;
+            //     }
+            //     if (response.data.status == 'invalide') 
+            //     {
+            //         vm.valLogin = 'Try again';
+            //         vm.disLogin = false;
+            //         if (response.data.message.password) 
+            //         {
+            //             vm.frameErrPass = true;
+            //             vm.messagePass = response.data.message.password[0];
+            //         }
+            //         if (response.data.message.email) 
+            //         {
+            //             vm.frameErrEmail = true;
+            //             vm.messageEmail = response.data.message.email[0];
+            //         }
+            //     }
+            //     if (response.data.status == 'success') 
+            //     {
+            //         vm.valLogin = 'Success';
+            //         vm.disLogin = true;
+            //         this.$cookie.set('jwt', response.data.me.access_token, 7);
+            //         this.$cookie.set('id', response.data.me.id, 7);
+            //         this.$cookie.set('name', response.data.me.name, 7);
+            //         this.$cookie.set('username', response.data.me.username, 7);
+            //         this.$cookie.set('foto', response.data.me.foto, 7);
+            //         window.location = vm.$initUrl;
+            //         // console.log(response.data);
                     
-                }
-            })
-            .catch(e => {
-                //main error
-                if (e.response.status == 405) 
-                {
-                    var msg = e.response.statusText;
-                }
-                // if (e.response.data.status) 
-                // {
-                //     var msg = 'Please check back your email or password';
-                // } else {
-                //     var msg = e.response.data.statusText;
-                // }
-                vm.frameErr = true;
-                vm.message = msg;
-                vm.valLogin = 'Try Again';
-                vm.disLogin = false;
-                console.log(e.response);
+            //     }
+            // })
+            // .catch(e => {
+            //     //main error
+            //     if (e.response.status == 405) 
+            //     {
+            //         var msg = e.response.statusText;
+            //     }
+            //     // if (e.response.data.status) 
+            //     // {
+            //     //     var msg = 'Please check back your email or password';
+            //     // } else {
+            //     //     var msg = e.response.data.statusText;
+            //     // }
+            //     vm.frameErr = true;
+            //     vm.message = msg;
+            //     vm.valLogin = 'Try Again';
+            //     vm.disLogin = false;
+            //     console.log(e.response);
                 
-            });
+            // });
         }
     },
     created: function () {

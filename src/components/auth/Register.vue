@@ -109,68 +109,79 @@ export default {
             this.frameErrPass = false;
             this.valRegister = 'Please Wait...';
             this.disRegister = true;
-            axios.post(this.url, {
-                'name': this.user.name,
-                'email': this.user.email,
-                'password': this.user.password
-            })
-            .then(response => {
-                if (response.data.status == 'unlogin') 
-                {
-                    vm.frameErr = true;
-                    vm.message = e.response.responseText;
-                    vm.valRegister = 'Success';
-                    vm.disRegister = true;
-                }
-                if (response.data.status == 'unauthorized') 
-                {
-                    vm.frameErr = true;
-                    vm.message = e.response.responseText;
-                    vm.valRegister = 'Try Again';
-                    vm.disRegister = false;
-                }
-                if (response.data.status == 'invalide') 
-                {
-                    vm.valRegister = 'Try again';
-                    vm.disRegister = false;
-                    if (response.data.message.password) 
-                    {
-                        vm.frameErrPass = true;
-                        vm.messagePass = response.data.message.password[0];
-                    }
-                    if (response.data.message.email) 
-                    {
-                        vm.frameErrEmail = true;
-                        vm.messageEmail = response.data.message.email[0];
-                    }
-                    if (response.data.message.name) 
-                    {
-                        vm.frameErrName = true;
-                        vm.messageName = response.data.message.name[0];
-                    }
-                }
-                if (response.data.status == 'success') 
-                {
-                    vm.valRegister = 'Success';
-                    vm.disRegister = true;
-                    this.$cookie.set('jwt', response.data.access_token, 7);
-                    this.$cookie.set('id', response.data.me.original.id, 7);
-                    this.$cookie.set('name', response.data.me.original.name, 7);
-                    this.$cookie.set('username', response.data.me.original.username, 7);
-                    this.$cookie.set('foto', response.data.me.original.foto, 7);
-                    window.location = vm.$initUrl;
-                    // console.log(response.data);
 
-                }
-            })
-            .catch(e => {
-                //main error
-                vm.frameErr = true;
-                vm.message = e.response.responseText;
-                vm.valRegister = 'Try Again';
-                vm.disRegister = false;
-                console.log(e.response);
-            });
+            // true : dont forget to delete
+            vm.valRegister = 'Success';
+            vm.disRegister = true;
+            this.$cookie.set('jwt', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa', 7);
+            this.$cookie.set('id', '1', 7);
+            this.$cookie.set('name', 'Ganjar Hadiatna', 7);
+            this.$cookie.set('username', 'ganjar18', 7);
+            this.$cookie.set('foto', '', 7);
+            window.location = vm.$initUrl;
+
+            // axios.post(this.url, {
+            //     'name': this.user.name,
+            //     'email': this.user.email,
+            //     'password': this.user.password
+            // })
+            // .then(response => {
+            //     if (response.data.status == 'unlogin') 
+            //     {
+            //         vm.frameErr = true;
+            //         vm.message = e.response.responseText;
+            //         vm.valRegister = 'Success';
+            //         vm.disRegister = true;
+            //     }
+            //     if (response.data.status == 'unauthorized') 
+            //     {
+            //         vm.frameErr = true;
+            //         vm.message = e.response.responseText;
+            //         vm.valRegister = 'Try Again';
+            //         vm.disRegister = false;
+            //     }
+            //     if (response.data.status == 'invalide') 
+            //     {
+            //         vm.valRegister = 'Try again';
+            //         vm.disRegister = false;
+            //         if (response.data.message.password) 
+            //         {
+            //             vm.frameErrPass = true;
+            //             vm.messagePass = response.data.message.password[0];
+            //         }
+            //         if (response.data.message.email) 
+            //         {
+            //             vm.frameErrEmail = true;
+            //             vm.messageEmail = response.data.message.email[0];
+            //         }
+            //         if (response.data.message.name) 
+            //         {
+            //             vm.frameErrName = true;
+            //             vm.messageName = response.data.message.name[0];
+            //         }
+            //     }
+            //     if (response.data.status == 'success') 
+            //     {
+            //         vm.valRegister = 'Success';
+            //         vm.disRegister = true;
+            //         this.$cookie.set('jwt', response.data.access_token, 7);
+            //         this.$cookie.set('id', response.data.me.original.id, 7);
+            //         this.$cookie.set('name', response.data.me.original.name, 7);
+            //         this.$cookie.set('username', response.data.me.original.username, 7);
+            //         this.$cookie.set('foto', response.data.me.original.foto, 7);
+            //         window.location = vm.$initUrl;
+            //         // console.log(response.data);
+
+            //     }
+            // })
+            // .catch(e => {
+            //     //main error
+            //     vm.frameErr = true;
+            //     vm.message = e.response.responseText;
+            //     vm.valRegister = 'Try Again';
+            //     vm.disRegister = false;
+            //     console.log(e.response);
+            // });
         }
     },
     created: function () {
