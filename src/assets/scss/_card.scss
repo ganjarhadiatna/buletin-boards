@@ -1,0 +1,761 @@
+// card buletin
+.card-buletin {
+    position: relative;
+    width: calc(100% - 15px);
+    padding: 7.5px;
+    margin: 10px 0;
+    border-radius: $radius-2;
+    &:hover {
+        @include animate_1();
+        background-color: #f3f3f3;
+        .c-b-mid {
+            @include animate_1();
+            .c-b-name {
+                color: $min-color;
+            }
+        }
+    }
+    .c-b-top {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        border-radius: $radius-4;
+        overflow: hidden;
+        background-color: $pos-color;
+    }
+    .c-b-mid {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: calc(60%);
+        padding: 10px 10px;
+
+        background-color: #fff;
+
+        border-top-right-radius: $radius-4;
+        .c-b-name {
+            font-size: 12pt;
+            font-weight: 600;
+            color: $txt-84-color;
+        }
+        .c-b-date {
+            font-size: 10pt;
+            font-weight: 500;
+            color: $txt-54-color;
+        }
+    }
+    .c-b-bot {
+        position: relative;
+        width: 100%;
+        height: 10px;
+    }
+}
+
+.card-buletin-small {
+    position: relative;
+    width: calc(100% - 60px);
+    padding: 40px 20px;
+    margin: 10px;
+    border-radius: $radius-3;
+    border: $border;
+    text-align: center;
+    &:hover {
+        @include animate_1();
+        box-shadow: $shadow;
+    }
+    .c-b-top {
+        width: 150px;
+        margin: auto;
+        padding-bottom: 20px;
+    }
+    .c-b-name {
+        font-size: 18pt;
+        font-family: $font-bold;
+        color: $txt-84-color;
+        &:hover {
+            color: $min-color;
+        }
+    }
+    .c-b-about {
+        font-size: 12pt;
+        color: $txt-54-color;
+    }
+    .c-b-date {
+        font-size: 11pt;
+        color: $txt-84-color;
+    }
+}
+
+.card-buletin-list {
+    position: relative;
+    width: calc(100% - 15px);
+    padding: 10px 7.5px;
+    margin: 5px 0;
+    border-radius: $radius-2;
+    @include grid_2x(45px, 1fr);
+    @include grid_gap(10px);
+    &:hover {
+        // @include animate_1();
+        // box-shadow: $shadow;
+        @include animate_1();
+        cursor: pointer;
+        background-color: $pri2-color;
+    }
+    .c-b-name {
+        font-size: 11pt;
+        font-family: $font-bold;
+        color: $txt-84-color;
+        &:hover {
+            color: $min-color;
+        }
+    }
+    .c-b-about {
+        font-size: 11pt;
+        color: $txt-54-color;
+    }
+    .c-b-date {
+        font-size: 11pt;
+        color: $txt-84-color;
+    }
+}
+
+// card-notes
+.card-note {
+    position: relative;
+    // width: calc(100% - 25px);
+    // padding: 7.5px;
+    width: calc(100% - 10px);
+    border-radius: $radius-3;
+    overflow: hidden;
+    margin: 10px 5px; // margin: 5px 0;
+    border: $border;
+    
+    // delete
+    display: inline-block;
+    vertical-align: top;
+
+    &:hover {
+        @include animate_1();
+        // background-color: $pri2-color;
+        box-shadow: $shadow;
+    }
+
+    .c-n-icn {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 100%;
+
+        text-align: center;
+        font-size: 11pt;
+
+        cursor: pointer;
+    }
+
+    .c-n-data {
+        @include post_top(relative);
+    }
+    .c-n-name {
+        font-size: 11pt;
+        font-weight: 600;
+    }
+    .c-n-date {
+        font-size: 9pt;
+        font-weight: 500;
+    }
+    .c-n-title {
+        font-size: 11pt;
+        font-weight: 600;
+    }
+
+    .c-n-place {
+        position: relative;
+        width: 100%;
+        border-top-left-radius: $radius-4;
+        border-top-right-radius: $radius-4;
+        border-bottom-left-radius: $radius-2;
+        border-bottom-right-radius: $radius-2;
+        // background-color: $pri2-color;
+    }
+
+    .c-n-receive {
+        position: relative;
+        width: calc(100% - 20px);
+        padding: 10px;
+        @include grid_3x(35px, 1fr, 30px);
+        @include grid_gap(10px);
+        .col-1 {
+            @include column_n(1);
+        }
+        .col-2 {
+            @include column_n(2);
+        }
+        .c-n-title {
+            color: $txt-84-color;
+        }
+        .c-n-icn {
+            color: $txt-54-color;
+        }
+    }
+
+    .c-n-main {
+        position: relative;
+        width: calc(100% - 20px);
+        padding: 10px;
+        // border-radius: $radius-2;
+        border-bottom-left-radius: $radius-3;
+        border-bottom-right-radius: $radius-3;
+
+        &.c-n-color-1 {
+            background-color: $min-color;
+            color: #fff;
+            a {
+                color: #fff;
+            }
+            .c-n-profile {
+                .c-n-name {
+                    color: #fff;
+                }
+                .c-n-date {
+                    color: #fff;
+                }
+                .c-n-icn {
+                    color: #fff;
+                }
+            }
+            .c-n-info {
+                .c-n-btn {
+                    background-color: $min-color;
+                    color: #fff;
+                    line-height: 45px;
+                }
+            }
+        }
+
+        &.c-n-color-2 {
+            background-color: $del-color;
+            color: #fff;
+            a {
+                color: #fff;
+            }
+            .c-n-profile {
+                .c-n-name {
+                    color: #fff;
+                }
+                .c-n-date {
+                    color: #fff;
+                }
+                .c-n-icn {
+                    color: #fff;
+                }
+            }
+            .c-n-info {
+                .c-n-btn {
+                    background-color: $del-color;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .c-n-top {
+        position: relative;
+        width: 100%;
+    }
+
+    .c-n-mid {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        .c-n-title {
+            font-size: 18pt;
+            font-weight: 600;
+        }
+        .c-n-content {
+            font-size: 11pt;
+            font-weight: 500;
+        }
+    }
+
+    .c-n-bot {
+        position: relative;
+        width: 100%;
+    }
+
+    .c-n-info {
+        position: relative;
+        width: 100%;
+        @include grid_2x(1fr, 1fr);
+        @include grid_gap(10px);
+        .col-1 {
+            @include column_n(1);
+        }
+        .col-2 {
+            @include column_n(2);
+            text-align: right;
+        }
+        .c-n-btn {
+            .icn {
+                width: 30px;
+                height: 30px;
+            }
+            .ttl {
+                font-weight: 500;
+                font-size: 11pt;
+            }
+        }
+    }
+
+    .c-n-profile {
+        position: relative;
+        width: 100%;
+        @include grid_3x(35px, 1fr, 35px);
+        @include grid_gap(10px);
+        .col-1 {
+            @include column_n(1);
+        }
+        .col-2 {
+            @include column_n(2);
+        }
+        .col-3 {
+            @include column_n(3);
+        }
+    }
+
+}
+
+
+// view
+$width-side-nte-view: 300px;
+.card-note-view {
+    position: relative;
+    width: 900px;
+    padding: 25px;
+    margin: auto;
+    border-radius: $radius-2;
+    background-color: #fff;
+    // border: $border-2;
+    .c-n-v-grid {
+        @include grid_2x(1fr, $width-side-nte-view);
+        @include grid_gap(40px);
+        .c-n-v-col-1 {
+            @include column_n(1);
+        }
+        .c-n-v-col-2 {
+            @include column_n(2);
+        }
+    }
+    .c-n-v-note {
+        position: relative;
+        width: calc(100% - 50px);
+        height: auto;
+        padding: 10px 25px;
+        border-radius: $radius-4;
+        &.theme-1 {
+            background-color: $min-color;
+            color: #fff;
+        }
+        &.theme-2 {
+            background-color: $pos-color;
+            color: #fff;
+        }
+        .c-n-v-ttl {
+            font-size: 30pt;
+            margin: 25px 0;
+        }
+        .c-n-v-desc {
+            font-size: 14pt;
+            line-height: 1.2;
+            margin: 20px 0;
+        }
+    }
+    .c-n-v-info {
+        position: relative;
+        width: 100%;
+        &.c-n-v-fixed {
+            position: fixed;
+            top: 100px;
+            width: $width-side-nte-view;
+        }
+        &.c-i-grid {
+            margin: 20px 0;
+            @include column_n(2);
+            @include grid_2x(1fr, 300px);
+            @include grid_gap(40px);
+            .c-i-col-1 {
+                @include column_n(1);
+            }
+            .c-i-col-2 {
+                @include column_n(2);
+            }
+        }
+    }
+    .c-n-v-b-top {
+        font-size: 11pt;
+        color: $txt-54-color;
+        font-weight: 600;
+    }
+    .c-n-v-block {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        &.no-margin {
+            margin: 0 0;
+        }
+        .c-n-v-b-top {
+            margin: 5px 0;
+        }
+        .c-n-v-b-mid {
+            position: relative;
+            width: calc(100% - 15px);
+            padding: 0 7.5px;
+        }
+    }
+    .c-n-v-flex {
+        display: flex;
+    }
+    .c-n-v-tag {
+        position: relative;
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+        border-radius: 45px;
+        font-size: 10pt;
+        font-weight: 600;
+        color: $txt-84-color;
+        background-color: $pri-color;
+    }
+    .c-n-v-val {
+        position: relative;
+        width: 100%;
+        font-size: 11pt;
+        margin: 10px 0;
+        @include grid_2x(1fr, 100px);
+        .c-v-col-1 {
+            @include column_n(1);
+        }
+        .c-v-col-2 {
+            @include column_n(2);
+            text-align: right;
+        }
+    }
+}
+
+// card
+.card-color {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    .c-c-cover {
+        position: relative;
+        width: 80%;
+        padding-bottom: 80%;
+        border-radius: 100%;
+        margin: auto;
+        cursor: pointer;
+        &.color-1 {
+            background-color: $min-color;
+        }
+        &.color-2 {
+            background-color: $pos-color;
+        }
+    }
+}
+
+// card profile
+.card-profile {
+    position: relative;
+    width: 100%;
+    @include grid_3x(45px, 1fr, 45px);
+    @include grid_gap(10px);
+    &.grid-2 {
+        @include grid_2x(45px, 1fr);
+        @include grid_gap(15px);
+    }
+    .c-p-col-1 {
+        @include column_n(1);
+    }
+    .c-p-col-2 {
+        @include column_n(2);
+    }
+    .c-p-col-3 {
+        @include column_n(3);
+        text-align: right;
+    }
+    .c-p-info {
+        @include post_top(relative);
+    }
+    .c-p-name {
+        font-size: 14pt;
+        font-weight: 600;
+        color: $txt-84-color;
+    }
+    .c-p-date {
+        font-size: 10pt;
+        font-weight: 500;
+        color: $txt-84-color;
+    }
+}
+
+// card profile
+.card-comment {
+    position: relative;
+    width: 100%;
+    @include grid_3x(45px, 1fr, 45px);
+    @include grid_gap(10px);
+    &.grid-2 {
+        @include grid_2x(45px, 1fr);
+        @include grid_gap(15px);
+    }
+    .c-p-col-1 {
+        @include column_n(1);
+    }
+    .c-p-col-2 {
+        @include column_n(2);
+    }
+    .c-p-col-3 {
+        @include column_n(3);
+        text-align: right;
+    }
+    .c-p-info {
+        position: relative;
+        width: calc(100% - 40px);
+        padding: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: $radius-4;
+        border-bottom-left-radius: $radius-4;
+        border-bottom-right-radius: $radius-4;
+        background-color: $pri2-color;
+    }
+    .c-p-name {
+        font-size: 11pt;
+        font-weight: 600;
+        color: $txt-84-color;
+    }
+    .c-p-date {
+        font-size: 10pt;
+        font-weight: 500;
+        color: $txt-84-color;
+    }
+}
+
+// Card Tags
+.card-tag {
+    position: relative;
+    width: calc(100% - 28px);
+    padding: 10px 14px;
+    border-radius: $radius;
+    overflow: hidden;
+    &:hover {
+        @include animate_1();
+        background-color: #f6f6f6;
+        color: $txt-84-color;
+    }
+    &.theme-1 {
+        border-radius: 0;
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+    &.c-t-shadow {
+        width: calc(100% - 43px);
+        padding: 10px 14px;
+        margin: 10px 7.5px;
+        // box-shadow: $shadow;
+        border: $border;
+        &:hover {
+            @include animate_1();
+            box-shadow: $shadow;
+            color: $txt-84-color;
+            background-color: #fff;
+        }
+    }
+    .c-t-info {
+        @include grid_2x(25px, 1fr);
+        .c-t-icn {
+            position: relative;
+            width: 100%;
+            @include column_n(1);
+            .icn {
+                font-size: 14pt;
+                color: $min-color;
+                // @include post_top(absolute);
+            }
+        }
+        .c-t-val {
+            position: relative;
+            width: 100%;
+            @include column_n(2);
+        }
+    }
+    .c-t-date {
+        font-size: 10pt;
+        font-weight: 500;
+        color: $txt-54-color;
+    }
+    .c-t-val {
+        font-size: 12pt;
+        font-weight: 600;
+        color: $txt-84-color;
+    }
+}
+.card-tag-big {
+    position: relative;
+    width: calc(100% - 15px);
+    padding: 7.5px;
+    margin: 10px 0;
+    border-radius: $radius-2;
+    display: inline-block;
+    &:hover {
+        @include animate_1();
+        background-color: $pri2-color;
+    }
+    .c-t-cover {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        border-radius: $radius-3;
+        background-color: $pos-color;
+    }
+}
+
+// category
+.card-ctr-big {
+    position: relative;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: $radius-2;
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+        .c-t-cover {
+            @include animate_1();
+            box-shadow: $shadow;
+        }
+    }
+    .c-t-cover {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        border-radius: $radius-2;
+        background-color: #fff;
+        // box-shadow: $shadow;
+        border: $border;
+        .c-t-info {
+            @include post_center(absolute);
+            text-align: center;
+            width: 100%;
+        }
+        .c-t-icn {
+            color: $min-color;
+            font-size: 20pt;
+            margin: 20px 0;
+        }
+        .c-t-val {
+            color: $txt-84-color;
+            font-size: 11pt;
+            margin: 20px 0;
+        }
+    }
+}
+
+.card-ctr-list {
+    position: relative;
+    width: calc(100% - 15px);
+    padding: 10px 7.5px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: $radius-2;
+    @include grid_2x(30px, 1fr);
+    @include grid_gap(10px);
+    &:hover {
+        // @include animate_1();
+        // box-shadow: $shadow;
+        @include animate_1();
+        background-color: $pri2-color;
+    }
+    .c-t-icn {
+        @include column_n(1);
+        text-align: center;
+        .icn {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 100%;
+            background-color: $min-color;
+            color: #fff;
+        }
+    }
+    .c-t-info {
+        @include column_n(2);
+        .c-t-val {
+            @include post_top(relative);
+            font-weight: 600;
+            color: $txt-84-color;
+            font-size: 11pt;
+        }
+    }
+}
+
+// card notif
+.card-notif {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: $radius-3;
+    @include grid_2x(50px, 1fr);
+    @include grid_gap(15px);
+    &:hover {
+        background-color: $pri2-color;
+    }
+    .col-1 {
+        @include column_n(1);
+    }
+    .col-2 {
+        @include column_n(2);
+    }
+    .c-n-place {
+        position: relative;
+        width: calc(100% - 50px);
+        padding: 15px 25px;
+        border-radius: 45px;
+        &.c-color-1 {
+            background-color: #f3f3f3;
+        }
+    }
+    .c-n-message {
+        font-weight: 600;
+        font-size: 11pt;
+        color: $txt-84-color;
+    }
+    .c-n-date {
+        font-size: 9pt;
+        color: $txt-54-color;
+    }
+}
+
+// card auth
+.card-auth {
+    @include post_center(relative);
+    width: 350px;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: $radius-4;
+    border: $border-2;
+    // box-shadow: $shadow;
+    .c-a-top {
+        text-align: center;
+        margin: 10px 0 30px 0;
+    }
+    .c-a-bot {
+        margin: 35px 0;
+    }
+    .c-a-block {
+        position: relative;
+        width: 100%;
+        margin: 15px 0;
+    }
+}

@@ -1,0 +1,552 @@
+// import modul
+@import 'variables';
+@import 'animation';
+@import 'position';
+@import 'width';
+@import 'text';
+@import 'padding';
+@import 'margin';
+@import 'image';
+@import 'grid';
+@import 'navigator';
+@import 'form';
+@import 'card';
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    font-family: $font;
+}
+
+a {
+    text-decoration: none;
+}
+
+// panel
+$head-height: 70px;
+.app-head {
+    position: relative;
+    width: 100%;
+    height: $head-height;
+    .a-h-place {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $head-height;
+        background-color: #fff;
+        z-index: 100;
+        // box-shadow: 0px 10px 20px $txt-14-color;
+        border-bottom: $border;
+    }
+    .a-h-main {
+        position: relative;
+        width: $col-full;
+        padding: (($head-height - 45px) / 2) 0;
+        margin: auto;
+        height: $head-height;
+        @include grid_4x(120px, 550px, 1fr, 300px);
+        @include grid_gap(20px);
+        cursor: default;
+        .a-h-col-1 {
+            @include column_n(1);
+        }
+        .a-h-col-2 {
+            @include column_n(2);
+        }
+        .a-h-col-3 {
+            text-align: right;
+            @include column_n(3);
+            .btn {
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+        .a-h-col-4 {
+            text-align: right;
+            @include column_n(4);
+        }
+        .a-h-logo {
+            width: 100%;
+        }
+        .btn-profile {
+            max-width: 100px;
+            overflow: hidden;
+        }
+        .a-h-inline {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .a-h-search {
+        position: relative;
+        width: 100%;
+        background-color: #f3f3f3;
+        overflow: hidden;
+        text-align: left;
+        border-radius: $head-height;
+        @include grid_2x(1fr, 60px);
+        .a-h-s-col-1 {
+            @include column_n(1)
+        }
+        .a-h-s-col-2 {
+            @include column_n(2)
+        }
+    }
+}
+
+
+// body
+.app-body {
+    position: relative;
+    width: 100%;
+    .a-b-header {
+        position: relative;
+        width: 100%;
+        margin: 20px 0 30px 0;
+        text-align: center;
+        h1 {
+            font-size: 35pt;
+            font-weight: 600;
+            color: $txt-84-color;
+            font-family: $font-bold;
+        }
+        p {
+            font-size: 12pt;
+            color: $txt-84-color;
+        }
+    }
+    .a-b-place {
+        position: relative;
+        width: $col-full;
+        margin: auto;
+    }
+    .a-b-cover {
+        position: relative;
+        @include grid_2x(1fr, 400px);
+        @include grid_gap(50px);
+        &.theme-1 {
+            width: calc(100% - 100px);
+            padding: 50px;
+            border-radius: $radius-4;
+            background-color: $min-color;
+        }
+        &.theme-2 {
+            width: calc(100%);
+            padding: 0 0;
+            border-radius: $radius-4;
+            background-color: #fff;
+        }
+        &.no-grid {
+            @include grid_none();
+        }
+        .col-1 {
+            @include column_n(1);
+        }
+        .col-2 {
+            @include column_n(2);
+        }
+        .a-b-image {
+            width: 250px;
+        }
+        .a-b-content {
+            @include post_top(relative);
+        }
+        .a-b-content-center {
+            @include post_center(relative);
+            text-align: center;
+        }
+        .a-b-menu {
+            position: relative;
+            width: 100%;
+            li {
+                list-style: none;
+                margin: 15px 0;
+                @include grid_2x(30px, 1fr);
+                .m-col-1 {
+                    @include column_n(1);
+                    font-size: 11pt;
+                }
+                .m-col-2 {
+                    @include column_n(2);
+                    font-weight: 600;
+                    font-size: 11pt;
+                }
+            }
+        }
+    }
+    .a-b-grid {
+        position: relative;
+        width: 100%;
+        @include grid_2x(1fr, 400px);
+        @include grid_gap(50px);
+        .col-1 {
+            @include column_n(1);
+        }
+        .col-2 {
+            @include column_n(2);
+        }
+    }
+    .a-b-block {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        .a-b-b-top {
+            position: relative;
+            width: 100%;
+            cursor: default;
+            @include grid_2x(1fr, 190px);
+            .col-1 {
+                @include column_n(1);
+            }
+            .col-2 {
+                @include column_n(2);
+                text-align: right;
+            }
+            .a-b-ttl {
+                font-size: 12pt;
+                font-weight: 600;
+                color: $txt-84-color;
+            }
+            .a-b-link {
+                font-size: 12pt;
+                font-weight: 500;
+                color: $pos-color;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .a-b-b-center {
+            position: relative;
+            width: 100%;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .a-b-b-mid {
+            position: relative;
+            width: 100%;
+            margin: 10px 0;
+            &.no-margin {
+                margin: 0 0;
+            }
+        }
+        .a-b-b-flex {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .a-b-b-masonry {
+            column-count: 4;
+            column-gap: 7.5px;
+            &.mas-5 {
+                column-count: 5;
+            }
+        }
+
+    }
+}
+
+// content
+.app-fixed {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    background-color: #f3f3f3;
+}
+
+.app-profile {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    @include grid_2x(1fr, 100px);
+    @include grid_gap(20px);
+    .col-1 {
+        @include column_n(1);
+    }
+    .col-2 {
+        @include column_n(2);
+        text-align: right;
+    }
+}
+
+.app-cover-profile {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: $pri2-color;
+}
+
+.app-main-page {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    @include grid_3x(250px, 1fr, 300px);
+    @include grid_gap(40px);
+    .col-1 {
+        @include column_n(1);
+    }
+    .col-2 {
+        @include column_n(2);
+    }
+    .col-3 {
+        @include column_n(3);
+    }
+}
+
+.app-setting {
+    position: relative;
+    width: 900px;
+    margin: auto;
+    @include grid_2x(300px, 1fr);
+    @include grid_gap(40px);
+    .col-1 {
+        @include column_n(1);
+    }
+    .col-2 {
+        @include column_n(2);
+    }
+    .a-s-fixed {
+        position: fixed;
+        top: 100px;
+        width: 300px;
+        &.theme-1 {
+            padding: 10px 0;
+            border-radius: $radius-2;
+            background-color: $min-color;
+        }
+        &.theme-2 {
+            padding: 10px 0;
+            border-radius: $radius-2;
+            background-color: $pos-color;
+        }
+        &.theme-3 {
+            padding: 10px 0;
+            border-radius: $radius-2;
+            background-color: $pri-color;
+        }
+    }
+    .a-s-change {
+        @include grid_2x(100px, 1fr);
+        @include grid_gap(20px);
+        #change-picture {
+            display: none;
+        }
+        .btn-div {
+            position: relative;
+            top: 27.5px;
+            width: 150px;
+            height: 45px;
+            padding: 0 0;
+        }
+    }
+}
+
+.app-form {
+    position: relative;
+    width: 100%;
+    margin: 15px 0;
+    .a-f-ttl {
+        font-size: 11pt;
+        font-weight: 500;
+        color: $txt-54-color;
+    }
+    .a-f-input {
+        margin: 5px 0;
+    }
+    .a-f-right {
+        text-align: right;
+    }
+}
+
+// main
+.app-button-create {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    .btn {
+        width: 55px;
+        height: 55px;
+        box-shadow: $shadow;
+        background-color: $pos-color;
+        color: #fff;
+    }
+}
+
+// message
+.app-message-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba($color: #000000, $alpha: 0.54);
+    .app-menu-center {
+        @include post_center(absolute);
+        padding: 20px 15px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: $radius-2;
+        overflow: hidden;
+    }
+    .app-loading {
+        @include grid_2x(30px, 1fr);
+        @include grid_gap(10px);
+        .col-1 {
+            @include column_n(1);
+        }
+        .col-2 {
+            @include column_n(2);
+        }
+        .icn {
+            color: $saf-color;
+        }
+        .ttl {
+            color: $txt-84-color;
+            font-weight: 600;
+            font-size: 1pt;
+        }
+    }
+    .app-menu {
+        width: 300px;
+        padding: 20px 0 0 0;
+        .a-m-top {
+            padding-bottom: 20px;
+            font-size: 12pt;
+            font-weight: 600;
+            color: $txt-84-color;
+            border-bottom: $border;
+        }
+        .a-m-mid {
+            font-size: 11pt;
+            font-weight: 500;
+            color: $txt-84-color;
+            padding: 15px 0;
+        }
+        .a-m-bot {
+            &.grid-2x {
+                @include grid_2x(1fr, 1fr);
+            }
+            .btn {
+                width: 100%;
+                height: 50px;
+                border-radius: 0;
+                background-color: #fff;
+                &:hover {
+                    background-color: #f3f3f3;
+                }
+            }
+        }
+        .a-m-list {
+            ul {
+                li {
+                    padding: 15px 0;
+                    width: 100%;
+                    font-size: 11pt;
+                    font-weight: 600;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #f3f3f3;
+                    }
+                    &.a-m-close {
+                        border-top: $border;
+                        font-weight: 500;
+                        color: $saf-color;
+                    }
+                }
+            }
+        }
+    }
+}
+.app-message-bottom {
+    @include post_bottom(fixed);
+    z-index: 100;
+    .app-message {
+        position: relative;
+        width: 400px;
+        bottom: 20px;
+        padding: 20px;
+        border-radius: 45px;
+        @include grid_3x(45px, 1fr, 100px);
+        @include grid_gap(10px);
+        .col-1 {
+            @include column_n(1);
+        }
+        .col-2 {
+            @include column_n(2);
+        }
+        .col-3 {
+            @include column_n(3);
+        }
+        &.theme-1 {
+            background-color: $err-color;
+            .icn {
+                color: #fff;
+            }
+            .val {
+                color: #fff;
+            }
+            .btn {
+                color: $prm-color;
+            }
+        }
+        &.theme-2 {
+            background-color: rgba($color: #000000, $alpha: 0.84);
+            .icn {
+                color: #fff;
+            }
+            .val {
+                color: #fff;
+            }
+            .btn {
+                color: $saf-color;
+            }
+        }
+        &.theme-3 {
+            background-color: $pos-color;
+            .icn {
+                color: #fff;
+            }
+            .val {
+                color: #fff;
+            }
+            .btn {
+                color: $prm-color;
+            }
+        }
+        .icn {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+        }
+        .val {
+            @include post_top(relative);
+            font-size: 12pt;
+            font-weight: 600;
+        }
+        .btn {
+            width: 100%;
+            border-radius: 0;
+            background-color: rgba($color: #000000, $alpha: 0);
+        }
+    }
+}
+
+
+// footer
+.app-footer {
+    position: relative;
+    padding: 15px 0;
+    border-top: $border;
+    .a-f-place {
+        text-align: center;
+    }
+}
